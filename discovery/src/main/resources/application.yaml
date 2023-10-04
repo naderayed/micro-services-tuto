@@ -1,0 +1,13 @@
+eureka:
+  instance:
+    hostname: localhost #eureka host name
+  client:
+    register-with-eureka: false # eureka doesn't need to register itself with itself
+    fetch-registry: false # we don't need to fetch the registry
+    service-url:  #serive url
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+server: #server port
+  port: 8761
+spring: #tell eureka to read the configuration from the config server
+  config:
+    import: optional:configserver:http://localhost:8888 # optional mean that in case the eureka fail find the config it has to still up and do not fail and give it where the config is
