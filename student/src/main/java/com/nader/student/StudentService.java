@@ -8,4 +8,7 @@ public interface StudentService {
 
     void  saveStudent(StudentDTO studentDTO);
     List<StudentDTO> findAllStudent();
+
+    List<StudentDTO> findAllStudentBySchool(long schoolId);
+
 }

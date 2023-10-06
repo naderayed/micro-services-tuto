@@ -16,7 +16,7 @@ spring:
     import: optional:configserver:http://localhost:8888 # config service url
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/students
+    url: jdbc:postgresql://localhost:5432/students?CreateDatabaseIfNotExist=true
     username: postgres
     password: password
 

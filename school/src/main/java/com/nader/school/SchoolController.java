@@ -1,10 +1,7 @@
 package com.nader.school;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,14 +10,20 @@ import java.util.List;
 @RequestMapping("api/v1/schools")
 public class SchoolController {
 
-    private final SchoolService schoolService ;
+    private final SchoolService schoolService;
 
     @PostMapping
-    public void save(School school){
+    public void save(@RequestBody School school) {
         schoolService.addSchool(school);
     }
+
     @GetMapping
-    public List<School> getAllSchools(){
+    public List<School> getAllSchools() {
         return schoolService.getAllSchool();
+    }
+
+    @GetMapping("/students")
+    public FullSchoolResponse getAllSchools(@RequestParam long schoolId) {
+        return schoolService.getschoolWithStudents(schoolId);
     }
 }

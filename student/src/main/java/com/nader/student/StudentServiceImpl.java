@@ -34,4 +34,9 @@ public class StudentServiceImpl implements StudentService {
        return repo.findAll().stream().map(studentDTOMapper).toList();
 
     }
+
+    @Override
+    public List<StudentDTO> findAllStudentBySchool(long schoolId) {
+        return repo.findAllBySchoolId(schoolId);
+    }
 }
