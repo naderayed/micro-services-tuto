@@ -1,0 +1,15 @@
+server:
+  port: 8888 # change the port number to 8888
+eureka:
+  client:
+    register-with-eureka: false # disable the auto registration
+spring:
+  profiles:
+    active: native
+  application:
+    name: config-server  # application name
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations # where spring config server is going to fetch configuration

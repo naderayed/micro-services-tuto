@@ -1,0 +1,13 @@
+eureka:
+  instance:
+    hostname: localhost #eureka host name
+  client:
+    register-with-eureka: false # eureka doesn't need to register itself with itself
+    fetch-registry: false # we don't need to fetch the registry
+    service-url:  #serive url
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+server: #server port
+  port: 8761
+spring:
+  application:
+    name: discovery
